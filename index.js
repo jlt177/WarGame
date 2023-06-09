@@ -84,10 +84,10 @@ createDeck(){
     compareCards(){
     let player1Score = 0;
     let player2Score = 0;
-    for (this.player1Hand = 0; this.player1Hand < this.player1Hand.length; this.player1Hand++){
-      for (this.player2Hand = 0; this.player2Hand < this.player2Hand.length; this.player2Hand++){
-      player1Score = this.player1Hand.rank++;
-      player2Score = this.player2Hand.rank++;
+    for (this.player1.playerHand = 0; this.player1.playerHand < this.player1.playerHand.length; this.player1.playerHand++){
+      for (this.player2.playerHand = 0; this.player2.playerHand < this.player2.playerHand.length; this.player2.playerHand++){
+      player1Score = this.player1.playerHand.rank++;
+      player2Score = this.player2.playerHand.rank++;
     
     
     if (player1Score === player2Score){
