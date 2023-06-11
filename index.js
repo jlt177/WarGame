@@ -82,25 +82,11 @@ createDeck(){
       console.log(this.player1, this.player2);
     }
     compareCards(){
-    let player1Score = 0;
-    let player2Score = 0;
-    for (this.player1.playerHand.rank = 0; this.player1.playerHand.rank < this.player1.playerHand.length; this.player1.playerHand.rank++){
-      for (this.player2.playerHand.rank = 0; this.player2.playerHand.rank < this.player2.playerHand.length; this.player2.playerHand.rank++){
-      player1Score = this.player1.playerHand.rank++;
-      player2Score = this.player2.playerHand.rank++;
-    
-    
-    if (player1Score === player2Score){
-      console.log("Tie");
-      console.log("This is player one's score: " + player1Score);
-
-
-
-      } else if( player1Score > player2Score){
-      console.log("Player 1 Winner");
-      } else {
-      console.log("Player 2 Winner");
-      }
+    for(let i = 0; i < 26; i++){
+      if(this.player1.playerHand[i].rank > this.player2.playerHand[i].rank++){
+      this.player1.score++;
+      } else if (this.player2.playerHand[i].rank > this.player2.playerHand[i].rank++){
+      this.player2.score++;
   }}}}
 
   let newGame = new GameLogic();
