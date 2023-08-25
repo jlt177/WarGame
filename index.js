@@ -38,19 +38,19 @@ createDeck(){
       //for each element in a new array every value will be matched with each suit
       this.deck.push(new Card(SUITS[i], VALUES[j], (j+2)));
        }
-      }console.log(this.deck[0].value);
+      }//console.log(this.deck[0].value);
     }
     
     shuffleDeck(){
       let oldIndex = "";
       for (let i = this.deck.length - 1; i > 0; i--){
         let randomVar = Math.floor(Math.random() * (i + 1));
-        console.log(randomVar);
+        //console.log(randomVar);
         oldIndex = this.deck[i];
         this.deck[i] = this.deck[randomVar];
         this.deck[randomVar] = oldIndex;
       }
-      console.log(this.deck[0]);
+      //console.log(this.deck[0]);
     } 
   }
 
@@ -72,6 +72,7 @@ createDeck(){
       this.gameDeck = new Deck();
     }
       startGame(){
+        console.log("Game Begins!");
         this.gameDeck.createDeck();
         this.gameDeck.shuffleDeck();
       }  
@@ -81,13 +82,48 @@ createDeck(){
       this.player2.playerHand = this.gameDeck.deck.slice(26, 52);
       console.log(this.player1, this.player2);
     }
-    compareCards(){
+     compareCards(){
+      
+      let scoreOneTotal = "";
+      let scoreTwoTotal = "";        
+      for (let a = 0; a < 26; a++){
+        
+        if(this.player1.playerHand[a].rank > this.player2.playerHand[a].rank){
+        this.player1.score = 1;
+        this.player2.score = 0;
+        scoreOneTotal++;
+        
+        } else {
+          this.player2.score = 1;
+          this.player1.score = 0;
+          scoreTwoTotal++;
+          
+         
+        } 
+
+        console.log(`Player One Value: ${this.player1.playerHand[a].value}, Suit: ${this.player1.playerHand[a].suit} --- Player Two Value: ${this.player2.playerHand[a].value}, Suit: ${this.player2.playerHand[a].suit}`);
+        console.log(`Score: ${this.player1.score} --- Score: ${this.player2.score}`);
+      }
+      console.log(`${this.player1.playerName} Total: ${scoreOneTotal} --- ${this.player2.playerName} Total: ${scoreTwoTotal}`);
+      if (scoreOneTotal > scoreTwoTotal){
+        console.log(`${this.player1.playerName} wins!`);
+      } else if (scoreTwoTotal > scoreOneTotal) {
+        console.log(`${this.player2.playerName} wins!`);
+      } else {
+        console.log("Tie!");
+  }
+  }
+  };  
+  
+
+
+    /*compareCards(){
     for(let i = 0; i < 26; i++){
-      if(this.player1.playerHand[i].rank > this.player2.playerHand[i].rank++){
-      this.player1.score++;
-      } else if (this.player2.playerHand[i].rank > this.player2.playerHand[i].rank++){
-      this.player2.score++;
-  }}}}
+      if(this.player1.playerHand[i].rank++ > this.player2.playerHand[i].rank++){
+      console.log("Player One Wins");
+      } else if (this.player2.playerHand[i].rank++ > this.player1.playerHand[i].rank++){
+      console.log("Player Two Wins");
+  }}}*/
 
   let newGame = new GameLogic();
   newGame.startGame();
