@@ -50,4 +50,5 @@ describe('WarGame week 6: ', () => {
 /*I attempted to create a mocha and chai test for one of my functions
 but I didn't understand how to 1) isolate one card with the function that 
 I have and 2) the correct syntax for the suit, value, and rank of that one card
-so my test fails*/
+so my test fails. I have tinkered and looked up the documentation as well as mdn
+to piece it together but I don't understand it yet*/
